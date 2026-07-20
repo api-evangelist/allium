@@ -1,0 +1,15 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/allium-openapi-original.json
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: APIKeyBearer
+  type: apiKey
+  in: header
+  parameter: X-API-KEY
+  sources:
+  - openapi/allium-openapi-original.json
