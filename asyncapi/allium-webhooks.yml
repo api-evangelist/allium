@@ -1,0 +1,23 @@
+generated: '2026-07-17'
+method: searched
+source: https://docs.allium.so/datastreams/overview ; https://docs.allium.so/beam/webhook-authentication
+spec_type: Webhooks
+notes: >-
+  Allium exposes a real event/streaming surface but publishes no AsyncAPI document.
+  Datastreams delivers live blockchain events over Kafka, Google Pub/Sub, AWS SNS, and
+  websockets; Beam delivers custom-filtered real-time pipelines and webhooks with signed
+  authentication and an optional compression setting.
+transports:
+- kafka
+- google-pubsub
+- aws-sns
+- websocket
+- webhook
+webhooks:
+  authentication: signed (see webhook-authentication docs)
+  authentication_docs: https://docs.allium.so/beam/webhook-authentication
+  compression: optional
+event_domains:
+- blockchain transactions and logs (decoded) across 150+ chains
+- Hyperliquid orders and fills
+- DEX trades, transfers, balances

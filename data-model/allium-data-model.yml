@@ -1,0 +1,35 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/allium-openapi-original.json
+notes: >-
+  Derived from the published Realtime OpenAPI (Explorer query-execution surface). The
+  broader Allium data model (wallets, holdings, DeFi positions, assets, DEX trades,
+  Hyperliquid, NFTs across 150+ chains) lives in the Explorer/Datashares warehouse schema,
+  not this REST spec.
+entities:
+- name: Query
+  id_field: query_id
+  description: A saved Explorer query that can be executed synchronously or asynchronously.
+- name: QueryRun
+  id_field: run_id
+  description: A single execution of a Query; has a status and produces results.
+  schema: QueryRun
+- name: QueryRunResults
+  description: The result set (rows + column metadata + stats) of a QueryRun.
+  schema: QueryRunResults
+- name: Datastore
+  description: Storage target/config for query run results.
+  schema: Datastore
+relationships:
+- from: QueryRun
+  to: Query
+  type: belongs_to
+  via: query_id
+- from: QueryRunResults
+  to: QueryRun
+  type: belongs_to
+  via: run_id
+- from: QueryRun
+  to: QueryRunResults
+  type: has_one
+  via: run_id

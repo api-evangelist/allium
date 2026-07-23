@@ -1,0 +1,17 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/allium-openapi-original.json
+format: json
+envelope: 'HTTPValidationError { detail: [ { loc, msg, type } ] }'
+notes: >-
+  The published Realtime OpenAPI is a FastAPI-style spec whose only documented error
+  response is 422 Validation Error (application/json, HTTPValidationError). It does not
+  use RFC 9457 problem+json. Auth (401/403) and rate-limit (429) errors are enforced at
+  runtime via the X-API-KEY scheme but are not enumerated in the spec.
+problems:
+- status: 422
+  title: Validation Error
+  media_type: application/json
+  schema: HTTPValidationError
+  applies_to: all operations
+  remediation: Correct the request path/query/body to satisfy the operation schema.

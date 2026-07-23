@@ -1,0 +1,17 @@
+generated: '2026-07-17'
+method: searched
+source: https://www.npmjs.com/package/@allium-labs/mcp
+notes: >-
+  Allium does not publish a general-purpose server SDK in the common registries; the
+  generic "allium" packages on PyPI and npm are unrelated third-party projects (name
+  collisions) and are excluded. The first-party published packages are the MCP CLI
+  installer and the agent-skills bundle, both under the allium-labs / allium-so orgs.
+packages:
+- language: javascript
+  registry: npm
+  name: '@allium-labs/mcp'
+  url: https://www.npmjs.com/package/@allium-labs/mcp
+  install: npx @allium-labs/mcp install
+  description: CLI installer for Allium's hosted MCP server (13+ clients).
+  repository: https://github.com/allium-so/allium-packages
+  official: true

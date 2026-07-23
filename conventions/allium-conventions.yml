@@ -1,0 +1,29 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/allium-openapi-original.json ; https://docs.allium.so/api/developer/overview
+authentication:
+  style: api-key
+  header: X-API-KEY
+  key_source: https://app.allium.so/settings/api-keys
+  ref: authentication/allium-authentication.yml
+base_url: https://api.allium.so
+media_type: application/json
+async_execution:
+  note: >-
+    Explorer queries support synchronous (/run) and asynchronous (/run-async) execution.
+    Async runs return a run_id; poll /query-runs/{run_id}/status then fetch
+    /query-runs/{run_id}/results, and can be cancelled via /query-runs/{run_id}/cancel.
+idempotency:
+  supported: false
+  note: No documented Idempotency-Key header/parameter in the published spec.
+pagination:
+  note: Not documented in the published Realtime OpenAPI; result-set paging is handled inside query-run results.
+webhooks:
+  note: Beam/Datastreams deliver events over webhooks with signed authentication.
+  ref: https://docs.allium.so/beam/webhook-authentication
+error_envelope:
+  note: FastAPI-style HTTPValidationError (422). See errors/allium-problem-types.yml.
+  ref: errors/allium-problem-types.yml
+machine_payments:
+  note: x402 (HTTP 402) machine-payment protocol for agent/pay-per-call access.
+  ref: https://docs.allium.so/ai/machine-payments/x402

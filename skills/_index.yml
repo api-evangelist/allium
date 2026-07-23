@@ -1,0 +1,21 @@
+generated: '2026-07-17'
+method: searched
+source: https://docs.allium.so/ai/machine-payments/agent-skills
+skills:
+- file: PROVIDER-PUBLISHED
+  name: Allium Machine-Payments Agent Skills
+  publisher: allium-labs/skills
+  install: npx skills add allium-labs/skills --yes
+  description: >-
+    Provider-published Agent Skills that let an AI agent query Allium's blockchain data
+    using x402 machine payments — the skill identifies the endpoint, handles the HTTP 402
+    payment challenge, signs the USDC payment, and returns results. No payment boilerplate.
+  docs: https://docs.allium.so/ai/machine-payments/agent-skills
+- file: allium-run-explorer-query.md
+  name: Run an Allium Explorer query and fetch results
+  api: openapi/allium-openapi-original.json
+  operations:
+  - execute_query_async_api_v1_explorer_queries__query_id__run_async_post
+  - get_query_run_status_api_v1_explorer_query_runs__run_id__status_get
+  - get_query_run_results_api_v1_explorer_query_runs__run_id__results_get
+  - cancel_query_run_api_v1_explorer_query_runs__run_id__cancel_post

@@ -1,0 +1,114 @@
+generated: '2026-07-17'
+method: generated
+source: openapi/allium-openapi-original.json
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 8
+  by_action_class:
+    acting: 3
+    connected: 5
+  by_consequence:
+    write: 3
+    read: 5
+  human_in_the_loop_required: 0
+operations:
+- path: /api/v1/explorer/queries/{query_id}/run
+  method: post
+  operationId: execute_query_api_v1_explorer_queries__query_id__run_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/explorer/queries/{query_id}/run-async
+  method: post
+  operationId: execute_query_async_api_v1_explorer_queries__query_id__run_async_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/explorer/query-runs
+  method: get
+  operationId: get_latest_query_run_handler_api_v1_explorer_query_runs_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/explorer/query-runs/{run_id}/status
+  method: get
+  operationId: get_query_run_status_api_v1_explorer_query_runs__run_id__status_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/explorer/query-runs/{run_id}/results
+  method: get
+  operationId: get_query_run_results_api_v1_explorer_query_runs__run_id__results_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/explorer/query-runs/{run_id}/cancel
+  method: post
+  operationId: cancel_query_run_api_v1_explorer_query_runs__run_id__cancel_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/polygon/nfts/
+  method: get
+  operationId: get_polygon_nfts_api_v1_polygon_nfts__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ping
+  method: get
+  operationId: ping_ping_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

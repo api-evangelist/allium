@@ -1,0 +1,37 @@
+generated: '2026-07-17'
+method: searched
+status: published
+source: https://docs.allium.so/ai/mcp/overview
+server:
+  name: allium
+  transport: http
+  url: https://mcp.allium.so
+  oauth_url: https://mcp-oauth.allium.so
+authentication:
+  type: apiKey
+  header: X-API-KEY
+  key_source: https://app.allium.so/settings/api-keys
+  oauth: true
+  oauth_note: OAuth available for chatbot platforms (ChatGPT, Claude, Copilot, Gemini)
+install:
+  cli: npx @allium-labs/mcp install
+  package: '@allium-labs/mcp'
+  clients:
+  - Claude Code
+  - Cursor
+  - VS Code
+  - Windsurf
+  claude_code: 'claude mcp add --scope user --transport http allium https://mcp.allium.so --header "X-API-KEY: <your-api-key>"'
+tools:
+- name: explorer_run_query
+  description: Execute a saved Allium Explorer query.
+- name: explorer_run_sql
+  description: Run a raw SQL query against Allium's blockchain data warehouse.
+- name: explorer_fetch_schema
+  description: Retrieve schema information for a table or dataset.
+- name: explorer_search_schemas
+  description: Semantic search across available schemas.
+tool_references:
+- https://docs.allium.so/ai/mcp/tools-reference/explorer
+- https://docs.allium.so/ai/mcp/tools-reference/realtime
+- https://docs.allium.so/ai/mcp/tools-reference/documentation

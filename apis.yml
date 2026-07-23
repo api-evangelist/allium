@@ -1,8 +1,15 @@
 aid: allium
 name: Allium
-description: 'Allium is a company surfaced as a portfolio company of amplify-partners, kleiner-perkins
-  and added to the API Evangelist network as a stub for enrichment. Sector: data-analytics. This profile
-  is a lead awaiting the enrichment pipeline.'
+description: 'Allium is an enterprise blockchain data platform that transforms raw on-chain
+  data from 150+ blockchains into verified, decision-grade intelligence for institutional
+  finance. It indexes and decodes activity across 10,000+ protocols and exposes it through
+  Realtime REST APIs (sub-second wallet balances, holdings, PnL, DeFi positions, NFTs, DEX
+  trades and Hyperliquid data), Datastreams (Kafka/Pub-Sub/SNS/websocket event feeds),
+  Beam custom pipelines, the Explorer/Datashares historical layer, and Allium Terminal for
+  research. It also ships an AI layer: a hosted MCP server, packaged Agent Skills, and
+  x402 machine-payment endpoints. Customers include Visa, Grayscale, Phantom, MetaMask,
+  MoonPay and the Federal Reserve. Backed by Amplify Partners, Kleiner Perkins and Theory
+  Ventures.'
 url: https://raw.githubusercontent.com/api-evangelist/allium/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,18 +18,140 @@ x-backed-by:
 - kleiner-perkins
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
 modified: '2026-07-17'
+image: https://www.allium.so/favicon.ico
 tags:
 - Company
 - Data Analytics
-apis: []
+- Blockchain
+- Crypto
+- Web3
+- Data Infrastructure
+- Real-Time Data
+- Stablecoins
+- DeFi
+- Machine Payments
+apis:
+- aid: allium:allium-explorer-api
+  name: Allium Explorer API
+  description: The Explorer API from Allium — 6 operation(s) for explorer.
+  humanURL: https://docs.allium.so/api/developer/overview
+  baseURL: https://api.allium.so
+  tags:
+  - Explorer
+  properties:
+  - type: OpenAPI
+    url: openapi/allium-explorer-api-openapi.yml
+  - type: Authentication
+    url: authentication/allium-authentication.yml
+- aid: allium:allium-ping-api
+  name: Allium ping API
+  description: The ping API from Allium — 1 operation(s) for ping.
+  humanURL: https://docs.allium.so/api/developer/overview
+  baseURL: https://api.allium.so
+  tags:
+  - ping
+  properties:
+  - type: OpenAPI
+    url: openapi/allium-ping-api-openapi.yml
+  - type: Authentication
+    url: authentication/allium-authentication.yml
+- aid: allium:allium-polygon-api
+  name: Allium Polygon API
+  description: The Polygon API from Allium — 1 operation(s) for polygon.
+  humanURL: https://docs.allium.so/api/developer/overview
+  baseURL: https://api.allium.so
+  tags:
+  - Polygon
+  properties:
+  - type: OpenAPI
+    url: openapi/allium-polygon-api-openapi.yml
+  - type: Authentication
+    url: authentication/allium-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: TrustCenter
+  url: security/allium-trust-center.yml
 - type: Website
   url: https://allium.so
+- type: DeveloperPortal
+  url: https://app.allium.so/
+- type: Documentation
+  url: https://docs.allium.so/
+- type: APIReference
+  url: https://docs.allium.so/api/developer/overview
+- type: GettingStarted
+  url: https://docs.allium.so/api/developer/overview
+- type: SignUp
+  url: https://app.allium.so/join
+- type: Blog
+  url: https://www.allium.so/blog
+- type: Support
+  url: https://www.allium.so/contact
+- type: Pricing
+  url: https://docs.allium.so/ai/machine-payments/endpoints-pricing
+- type: TermsOfService
+  url: https://www.allium.so/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.allium.so/privacy-policy
+- type: StatusPage
+  url: https://status.allium.so
+- type: ChangeLog
+  url: https://docs.allium.so/changelog/overview
+- type: Compliance
+  url: https://trust.allium.so/
+- type: OpenAPI
+  url: openapi/allium-openapi-original.json
+- type: LLMsTxt
+  url: llms/allium-llms.txt
+- type: MCPServer
+  url: mcp/allium-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Packages
+  url: packages/allium-packages.yml
+- type: Authentication
+  url: authentication/allium-authentication.yml
+- type: Conformance
+  url: conformance/allium-conformance.yml
+- type: DomainSecurity
+  url: security/allium-domain-security.yml
+- type: ErrorCatalog
+  url: errors/allium-problem-types.yml
+- type: Conventions
+  url: conventions/allium-conventions.yml
+- type: Lifecycle
+  url: lifecycle/allium-lifecycle.yml
+- type: DataModel
+  url: data-model/allium-data-model.yml
+- type: Overlay
+  url: overlays/allium-openapi-overlay.yaml
+- type: ChangeLog
+  url: changelog/allium-changelog.yml
+- type: AgenticAccess
+  url: agentic-access/allium-agentic-access.yml
+- type: Webhooks
+  url: asyncapi/allium-webhooks.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

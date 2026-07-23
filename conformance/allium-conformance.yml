@@ -1,0 +1,31 @@
+generated: '2026-07-17'
+method: searched
+source: https://www.allium.so/ ; https://trust.allium.so/ ; openapi/allium-openapi-original.json
+standards:
+- id: soc1-type1
+  conforms: true
+  evidence: Allium states SOC 1 Type 1 certification (homepage / trust center).
+- id: soc1-type2
+  conforms: true
+  evidence: Allium states SOC 1 Type 2 certification.
+- id: soc2-type1
+  conforms: true
+  evidence: Allium states SOC 2 Type 1 certification.
+- id: soc2-type2
+  conforms: true
+  evidence: Allium states SOC 2 Type 2 certification.
+- id: apikey-auth
+  conforms: true
+  evidence: OpenAPI securityScheme APIKeyBearer (apiKey, header X-API-KEY).
+- id: oauth2
+  conforms: true
+  evidence: MCP OAuth endpoint (mcp-oauth.allium.so) for chatbot platforms.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: API returns FastAPI-style HTTPValidationError (422) as application/json, not application/problem+json.
+- id: x402
+  conforms: true
+  evidence: Machine-payment endpoints implement the HTTP 402 x402 payment protocol (docs.allium.so/ai/machine-payments/x402).
+- id: asyncapi
+  conforms: false
+  evidence: Datastreams/Beam publish webhooks and Kafka/PubSub feeds but no AsyncAPI document.

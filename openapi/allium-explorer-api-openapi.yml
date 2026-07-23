@@ -1,0 +1,443 @@
+openapi: 3.0.2
+info:
+  title: Allium Explorer API
+  version: 0.1.0
+servers:
+- url: https://api.allium.so
+tags:
+- name: Explorer
+paths:
+  /api/v1/explorer/queries/{query_id}/run:
+    post:
+      summary: Execute Query
+      operationId: execute_query_api_v1_explorer_queries__query_id__run_post
+      parameters:
+      - required: true
+        schema:
+          title: Query Id
+          type: string
+        name: query_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Parameters
+              type: object
+              additionalProperties:
+                type: string
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - APIKeyBearer: []
+      tags:
+      - Explorer
+  /api/v1/explorer/queries/{query_id}/run-async:
+    post:
+      summary: Execute Query Async
+      operationId: execute_query_async_api_v1_explorer_queries__query_id__run_async_post
+      security:
+      - APIKeyBearer: []
+      parameters:
+      - name: query_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Query Id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_execute_query_async_api_v1_explorer_queries__query_id__run_async_post'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncQueryRunResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Explorer
+  /api/v1/explorer/query-runs:
+    get:
+      summary: Get Latest Query Run Handler
+      operationId: get_latest_query_run_handler_api_v1_explorer_query_runs_get
+      parameters:
+      - required: true
+        schema:
+          title: Query Id
+          type: string
+        name: query_id
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryRun'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - APIKeyBearer: []
+      tags:
+      - Explorer
+  /api/v1/explorer/query-runs/{run_id}/status:
+    get:
+      summary: Get Query Run Status
+      operationId: get_query_run_status_api_v1_explorer_query_runs__run_id__status_get
+      parameters:
+      - required: true
+        schema:
+          title: Run Id
+          type: string
+        name: run_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryRunStatus'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - APIKeyBearer: []
+      tags:
+      - Explorer
+  /api/v1/explorer/query-runs/{run_id}/results:
+    get:
+      summary: Get Query Run Results
+      operationId: get_query_run_results_api_v1_explorer_query_runs__run_id__results_get
+      parameters:
+      - required: true
+        schema:
+          title: Run Id
+          type: string
+        name: run_id
+        in: path
+      - required: false
+        schema:
+          allOf:
+          - $ref: '#/components/schemas/ResponseFormat'
+          default: json
+        name: f
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResult'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - APIKeyBearer: []
+      tags:
+      - Explorer
+  /api/v1/explorer/query-runs/{run_id}/cancel:
+    post:
+      summary: Cancel Query Run
+      operationId: cancel_query_run_api_v1_explorer_query_runs__run_id__cancel_post
+      parameters:
+      - required: true
+        schema:
+          title: Run Id
+          type: string
+        name: run_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - APIKeyBearer: []
+      tags:
+      - Explorer
+components:
+  schemas:
+    QueryRun:
+      title: QueryRun
+      required:
+      - run_id
+      - query_id
+      - query_config
+      - creator_id
+      - created_at
+      - status
+      type: object
+      properties:
+        run_id:
+          title: Run Id
+          type: string
+        query_id:
+          title: Query Id
+          type: string
+        query_config:
+          $ref: '#/components/schemas/QueryConfig'
+        creator_id:
+          title: Creator Id
+          type: string
+        created_at:
+          title: Created At
+          type: string
+          format: date-time
+        completed_at:
+          title: Completed At
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/QueryRunStatus'
+        stats:
+          $ref: '#/components/schemas/QueryRunStats'
+        error:
+          title: Error
+          type: string
+        results:
+          $ref: '#/components/schemas/QueryRunResults'
+        zed_token:
+          title: Zed Token
+          type: string
+    Body_execute_query_async_api_v1_explorer_queries__query_id__run_async_post:
+      title: Body_execute_query_async_api_v1_explorer_queries__query_id__run_async_post
+      required:
+      - parameters
+      type: object
+      properties:
+        parameters:
+          title: Parameters
+          type: object
+          additionalProperties:
+            type: string
+          description: Parameter names and values, to be substituted into parameter placeholders in the saved query
+        run_config:
+          title: Run Config
+          allOf:
+          - $ref: '#/components/schemas/QueryRunRequestConfig'
+          default: {}
+    QueryResult:
+      title: QueryResult
+      required:
+      - sql
+      - meta
+      type: object
+      properties:
+        sql:
+          title: Sql
+          type: string
+        data:
+          title: Data
+        meta:
+          $ref: '#/components/schemas/QueryResultMeta'
+        queried_at:
+          title: Queried At
+          type: string
+          format: date-time
+    AsyncQueryRunResponse:
+      properties:
+        run_id:
+          type: string
+          title: Run Id
+      type: object
+      required:
+      - run_id
+      title: AsyncQueryRunResponse
+    Datastore:
+      title: Datastore
+      enum:
+      - snowflake
+      - postgres
+      type: string
+      description: An enumeration.
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    QueryRunRequestConfig:
+      title: QueryRunRequestConfig
+      type: object
+      properties:
+        limit:
+          type: integer
+          title: Limit
+          example: 1000
+          description: Limit the number of rows in the result (max 250,000)
+        compute_profile:
+          title: Compute profile
+          type: string
+          description: Compute profile identifier
+    QueryResultMeta:
+      title: QueryResultMeta
+      required:
+      - columns
+      type: object
+      properties:
+        columns:
+          title: Columns
+          type: array
+          items:
+            $ref: '#/components/schemas/QueryResultMetaColumn'
+    QueryRunStats:
+      title: QueryRunStats
+      required:
+      - start_time
+      - end_time
+      type: object
+      properties:
+        start_time:
+          title: Start Time
+          type: string
+          format: date-time
+        end_time:
+          title: End Time
+          type: string
+          format: date-time
+        datastore:
+          $ref: '#/components/schemas/Datastore'
+        sql:
+          title: Sql
+          type: string
+        row_count:
+          title: Row Count
+          type: integer
+        data_size_bytes:
+          title: Data Size Bytes
+          type: integer
+    QueryConfig:
+      title: QueryConfig
+      required:
+      - sql
+      - limit
+      type: object
+      properties:
+        sql:
+          title: Sql
+          type: string
+        limit:
+          title: Limit
+          type: integer
+        parameters:
+          title: Parameters
+          type: object
+          additionalProperties:
+            type: string
+        datastore_to_use:
+          $ref: '#/components/schemas/Datastore'
+    QueryRunStatus:
+      title: QueryRunStatus
+      enum:
+      - created
+      - queued
+      - running
+      - success
+      - failed
+      - canceled
+      type: string
+      description: An enumeration.
+    QueryRunResultStorageType:
+      title: QueryRunResultStorageType
+      enum:
+      - gcs
+      type: string
+      description: An enumeration.
+    QueryResultMetaColumn:
+      title: QueryResultMetaColumn
+      required:
+      - name
+      - data_type
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type:
+          title: Data Type
+          type: string
+    QueryRunResults:
+      title: QueryRunResults
+      required:
+      - storage_type
+      type: object
+      properties:
+        storage_type:
+          $ref: '#/components/schemas/QueryRunResultStorageType'
+    ResponseFormat:
+      title: ResponseFormat
+      enum:
+      - json
+      - json_file
+      - csv
+      type: string
+      description: An enumeration.
+  securitySchemes:
+    APIKeyBearer:
+      type: apiKey
+      in: header
+      name: X-API-KEY

@@ -1,0 +1,18 @@
+{
+  "provider": "allium",
+  "sources": [
+    "allium-explorer-api-openapi.yml",
+    "allium-ping-api-openapi.yml",
+    "allium-polygon-api-openapi.yml"
+  ],
+  "outputs": [
+    "allium-explorer-api-openapi.yml",
+    "allium-ping-api-openapi.yml",
+    "allium-polygon-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,0 +1,14 @@
+generated: '2026-07-17'
+method: searched
+source: https://docs.allium.so/api/developer/overview ; https://status.allium.so ; https://docs.allium.so/changelog/overview
+versioning:
+  scheme: uri-path
+  current: v1
+  evidence: Realtime API paths are namespaced under /api/v1/.
+status_page: https://status.allium.so
+changelog: https://docs.allium.so/changelog/overview
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: No formal deprecation/Sunset-header policy located in public docs.
+deprecated_operations: []

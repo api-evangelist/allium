@@ -1,0 +1,19 @@
+generated: '2026-07-17'
+method: searched
+probe: true
+source: https://trust.allium.so/
+url: https://trust.allium.so/
+certifications:
+- SOC 1 Type 1
+- SOC 1 Type 2
+- SOC 2 Type 1
+- SOC 2 Type 2
+certifications_source: https://www.allium.so/
+evidence:
+- source: https://trust.allium.so/
+  keywords:
+  - trust center
+  - compliance certification
+- source: https://www.allium.so/
+  keywords:
+  - SOC 1 & 2 Type 1 and 2 certified

@@ -1,0 +1,29 @@
+generated: '2026-07-17'
+method: searched
+source: https://docs.allium.so/changelog/overview
+scheme: dated-weekly
+entries:
+- date: '2026-06-01'
+  type: addition
+  highlight: Wallet API now tracks staked, lent, and LP'd DeFi positions across HyperEVM, Avalanche, and Solana.
+- date: '2026-06-01'
+  type: addition
+  highlight: Hyperliquid markets endpoints expose HYPE open interest and per-coin perpetual volume.
+- date: '2026-06-01'
+  type: addition
+  highlight: Beam real-time streams support permissioned sharing across teams and a webhook compression setting.
+- date: '2026-05-18'
+  type: addition
+  highlight: Hyperliquid orders are a first-class Kafka source on Beam; Hyperliquid fills stream through Beam pubsub.
+- date: '2026-05-18'
+  type: addition
+  highlight: Beam datasets gained name-based filtering and bulk add-by-name for reference data management.
+- date: '2026-05-12'
+  type: addition
+  highlight: Beam added eight new testnet sources plus Plasma and MegaETH; bring-your-own-datasets supported.
+- date: '2026-05-12'
+  type: enhancement
+  highlight: Terminal tables now stream millions of rows; mobile chart zoom and dashboard inputs improved.
+- date: '2025-10-01'
+  type: addition
+  highlight: Schema coverage added for four new chains — Plasma, Kadena, Iota, and Ink Sepolia.
