@@ -119,7 +119,7 @@ common:
 - type: Compliance
   url: https://trust.allium.so/
 - type: OpenAPI
-  url: openapi/allium-openapi-original.json
+  url: openapi/_original/allium-openapi-original.json
 - type: LLMsTxt
   url: llms/allium-llms.txt
 - type: MCPServer
