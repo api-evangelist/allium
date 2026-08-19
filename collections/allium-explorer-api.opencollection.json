@@ -1,0 +1,175 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Allium Explorer API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Explorer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute Query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.allium.so/api/v1/explorer/queries/:query_id/run",
+            "params": [
+              {
+                "name": "query_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-API-KEY",
+              "value": "{{X-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Execute Query"
+        },
+        {
+          "info": {
+            "name": "Execute Query Async",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.allium.so/api/v1/explorer/queries/:query_id/run-async",
+            "params": [
+              {
+                "name": "query_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-API-KEY",
+              "value": "{{X-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Execute Query Async"
+        },
+        {
+          "info": {
+            "name": "Get Latest Query Run Handler",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.allium.so/api/v1/explorer/query-runs",
+            "params": [
+              {
+                "name": "query_id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-API-KEY",
+              "value": "{{X-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get Latest Query Run Handler"
+        },
+        {
+          "info": {
+            "name": "Get Query Run Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.allium.so/api/v1/explorer/query-runs/:run_id/status",
+            "params": [
+              {
+                "name": "run_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-API-KEY",
+              "value": "{{X-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get Query Run Status"
+        },
+        {
+          "info": {
+            "name": "Get Query Run Results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.allium.so/api/v1/explorer/query-runs/:run_id/results",
+            "params": [
+              {
+                "name": "run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "f",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-API-KEY",
+              "value": "{{X-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get Query Run Results"
+        },
+        {
+          "info": {
+            "name": "Cancel Query Run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.allium.so/api/v1/explorer/query-runs/:run_id/cancel",
+            "params": [
+              {
+                "name": "run_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-API-KEY",
+              "value": "{{X-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Cancel Query Run"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

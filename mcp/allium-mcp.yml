@@ -21,7 +21,8 @@ install:
   - Cursor
   - VS Code
   - Windsurf
-  claude_code: 'claude mcp add --scope user --transport http allium https://mcp.allium.so --header "X-API-KEY: <your-api-key>"'
+  claude_code: 'claude mcp add --scope user --transport http allium https://mcp.allium.so --header "X-API-KEY:
+    <your-api-key>"'
 tools:
 - name: explorer_run_query
   description: Execute a saved Allium Explorer query.
@@ -35,3 +36,11 @@ tool_references:
 - https://docs.allium.so/ai/mcp/tools-reference/explorer
 - https://docs.allium.so/ai/mcp/tools-reference/realtime
 - https://docs.allium.so/ai/mcp/tools-reference/documentation
+deployment:
+  mode: remote
+  endpoint: https://mcp.allium.so
+  verified: probed
+  probe: live
+  tools: 48
+  checked: '2026-08-12'
+  source: catalog MCP census

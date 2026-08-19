@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Allium Explorer ping API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ping",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ping",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.allium.so/ping"
+          },
+          "docs": "Ping"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
