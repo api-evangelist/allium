@@ -64,6 +64,8 @@ apis:
   humanURL: https://docs.allium.so/api/developer/overview
   baseURL: https://api.allium.so
   tags:
+  - Ping
+  tags_raw:
   - ping
   properties:
   - type: OpenAPI
