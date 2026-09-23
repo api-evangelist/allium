@@ -1,18 +1,34 @@
 {
   "provider": "allium",
   "sources": [
-    "allium-explorer-api-openapi.yml",
-    "allium-ping-api-openapi.yml",
-    "allium-polygon-api-openapi.yml"
+    "_original/allium-openapi-original.json"
   ],
   "outputs": [
     "allium-explorer-api-openapi.yml",
-    "allium-ping-api-openapi.yml",
-    "allium-polygon-api-openapi.yml"
+    "allium-polygon-api-openapi.yml",
+    "allium-ping-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "allium-openapi-original.json: upgraded openapi 3.0.2 -> OpenAPI 3.2.0",
+    "allium-openapi-original.json: tagged paths POST /api/v1/explorer/queries/{query_id}/run -> Explorer",
+    "allium-openapi-original.json: tagged paths POST /api/v1/explorer/queries/{query_id}/run-async -> Explorer",
+    "allium-openapi-original.json: tagged paths GET /api/v1/explorer/query-runs -> Explorer",
+    "allium-openapi-original.json: tagged paths GET /api/v1/explorer/query-runs/{run_id}/status -> Explorer",
+    "allium-openapi-original.json: tagged paths GET /api/v1/explorer/query-runs/{run_id}/results -> Explorer",
+    "allium-openapi-original.json: tagged paths POST /api/v1/explorer/query-runs/{run_id}/cancel -> Explorer",
+    "allium-openapi-original.json: tagged paths GET /api/v1/polygon/nfts/ -> Polygon",
+    "allium-openapi-original.json: declared missing tag: Explorer",
+    "allium-openapi-original.json: declared missing tag: Polygon",
+    "allium-openapi-original.json: declared missing tag: ping",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "allium-explorer-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "allium-ping-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "allium-polygon-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

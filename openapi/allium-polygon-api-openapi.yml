@@ -1,6 +1,6 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: Allium Explorer Polygon API
+  title: Allium Polygon API
   version: 0.1.0
 servers:
 - url: https://api.allium.so
