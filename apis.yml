@@ -75,7 +75,7 @@ apis:
   - type: Authentication
     url: authentication/allium-authentication.yml
 - aid: allium:allium-ping-api
-  name: Allium ping API
+  name: Allium Ping API
   description: The ping API from Allium — 1 operation(s) for ping.
   humanURL: https://docs.allium.so/api/developer/overview
   baseURL: https://api.allium.so

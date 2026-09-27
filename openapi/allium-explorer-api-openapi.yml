@@ -197,24 +197,27 @@ paths:
       - Explorer
 components:
   schemas:
-    QueryResult:
-      title: QueryResult
-      required:
-      - sql
-      - meta
-      type: object
-      properties:
-        sql:
-          title: Sql
-          type: string
-        data:
-          title: Data
-        meta:
-          $ref: '#/components/schemas/QueryResultMeta'
-        queried_at:
-          title: Queried At
-          type: string
-          format: date-time
+    QueryRunResultStorageType:
+      title: QueryRunResultStorageType
+      enum:
+      - gcs
+      type: string
+      description: An enumeration.
+    Datastore:
+      title: Datastore
+      enum:
+      - snowflake
+      - postgres
+      type: string
+      description: An enumeration.
+    ResponseFormat:
+      title: ResponseFormat
+      enum:
+      - json
+      - json_file
+      - csv
+      type: string
+      description: An enumeration.
     Body_execute_query_async_api_v1_explorer_queries__query_id__run_async_post:
       title: Body_execute_query_async_api_v1_explorer_queries__query_id__run_async_post
       required:
@@ -245,50 +248,6 @@ components:
         data_type:
           title: Data Type
           type: string
-    ResponseFormat:
-      title: ResponseFormat
-      enum:
-      - json
-      - json_file
-      - csv
-      type: string
-      description: An enumeration.
-    QueryRunResults:
-      title: QueryRunResults
-      required:
-      - storage_type
-      type: object
-      properties:
-        storage_type:
-          $ref: '#/components/schemas/QueryRunResultStorageType'
-    AsyncQueryRunResponse:
-      properties:
-        run_id:
-          type: string
-          title: Run Id
-      type: object
-      required:
-      - run_id
-      title: AsyncQueryRunResponse
-    QueryRunRequestConfig:
-      title: QueryRunRequestConfig
-      type: object
-      properties:
-        limit:
-          type: integer
-          title: Limit
-          example: 1000
-          description: Limit the number of rows in the result (max 250,000)
-        compute_profile:
-          title: Compute profile
-          type: string
-          description: Compute profile identifier
-    QueryRunResultStorageType:
-      title: QueryRunResultStorageType
-      enum:
-      - gcs
-      type: string
-      description: An enumeration.
     QueryRunStats:
       title: QueryRunStats
       required:
@@ -315,44 +274,17 @@ components:
         data_size_bytes:
           title: Data Size Bytes
           type: integer
-    QueryRunStatus:
-      title: QueryRunStatus
-      enum:
-      - created
-      - queued
-      - running
-      - success
-      - failed
-      - canceled
-      type: string
-      description: An enumeration.
-    Datastore:
-      title: Datastore
-      enum:
-      - snowflake
-      - postgres
-      type: string
-      description: An enumeration.
-    QueryConfig:
-      title: QueryConfig
+    QueryResultMeta:
+      title: QueryResultMeta
       required:
-      - sql
-      - limit
+      - columns
       type: object
       properties:
-        sql:
-          title: Sql
-          type: string
-        limit:
-          title: Limit
-          type: integer
-        parameters:
-          title: Parameters
-          type: object
-          additionalProperties:
-            type: string
-        datastore_to_use:
-          $ref: '#/components/schemas/Datastore'
+        columns:
+          title: Columns
+          type: array
+          items:
+            $ref: '#/components/schemas/QueryResultMetaColumn'
     ValidationError:
       title: ValidationError
       required:
@@ -374,15 +306,24 @@ components:
         type:
           title: Error Type
           type: string
-    HTTPValidationError:
-      title: HTTPValidationError
+    QueryResult:
+      title: QueryResult
+      required:
+      - sql
+      - meta
       type: object
       properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
+        sql:
+          title: Sql
+          type: string
+        data:
+          title: Data
+        meta:
+          $ref: '#/components/schemas/QueryResultMeta'
+        queried_at:
+          title: Queried At
+          type: string
+          format: date-time
     QueryRun:
       title: QueryRun
       required:
@@ -425,17 +366,76 @@ components:
         zed_token:
           title: Zed Token
           type: string
-    QueryResultMeta:
-      title: QueryResultMeta
-      required:
-      - columns
+    HTTPValidationError:
+      title: HTTPValidationError
       type: object
       properties:
-        columns:
-          title: Columns
+        detail:
+          title: Detail
           type: array
           items:
-            $ref: '#/components/schemas/QueryResultMetaColumn'
+            $ref: '#/components/schemas/ValidationError'
+    QueryRunResults:
+      title: QueryRunResults
+      required:
+      - storage_type
+      type: object
+      properties:
+        storage_type:
+          $ref: '#/components/schemas/QueryRunResultStorageType'
+    QueryRunStatus:
+      title: QueryRunStatus
+      enum:
+      - created
+      - queued
+      - running
+      - success
+      - failed
+      - canceled
+      type: string
+      description: An enumeration.
+    AsyncQueryRunResponse:
+      properties:
+        run_id:
+          type: string
+          title: Run Id
+      type: object
+      required:
+      - run_id
+      title: AsyncQueryRunResponse
+    QueryConfig:
+      title: QueryConfig
+      required:
+      - sql
+      - limit
+      type: object
+      properties:
+        sql:
+          title: Sql
+          type: string
+        limit:
+          title: Limit
+          type: integer
+        parameters:
+          title: Parameters
+          type: object
+          additionalProperties:
+            type: string
+        datastore_to_use:
+          $ref: '#/components/schemas/Datastore'
+    QueryRunRequestConfig:
+      title: QueryRunRequestConfig
+      type: object
+      properties:
+        limit:
+          type: integer
+          title: Limit
+          example: 1000
+          description: Limit the number of rows in the result (max 250,000)
+        compute_profile:
+          title: Compute profile
+          type: string
+          description: Compute profile identifier
   securitySchemes:
     APIKeyBearer:
       type: apiKey
