@@ -210,13 +210,6 @@ components:
           title: Compute profile
           type: string
           description: Compute profile identifier
-    Datastore:
-      title: Datastore
-      enum:
-      - snowflake
-      - postgres
-      type: string
-      description: An enumeration.
     QueryRunStats:
       title: QueryRunStats
       required:
@@ -243,125 +236,6 @@ components:
         data_size_bytes:
           title: Data Size Bytes
           type: integer
-    QueryResultMeta:
-      title: QueryResultMeta
-      required:
-      - columns
-      type: object
-      properties:
-        columns:
-          title: Columns
-          type: array
-          items:
-            $ref: '#/components/schemas/QueryResultMetaColumn'
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
-    QueryResult:
-      title: QueryResult
-      required:
-      - sql
-      - meta
-      type: object
-      properties:
-        sql:
-          title: Sql
-          type: string
-        data:
-          title: Data
-        meta:
-          $ref: '#/components/schemas/QueryResultMeta'
-        queried_at:
-          title: Queried At
-          type: string
-          format: date-time
-    ResponseFormat:
-      title: ResponseFormat
-      enum:
-      - json
-      - json_file
-      - csv
-      type: string
-      description: An enumeration.
-    AsyncQueryRunResponse:
-      properties:
-        run_id:
-          type: string
-          title: Run Id
-      type: object
-      required:
-      - run_id
-      title: AsyncQueryRunResponse
-    QueryResultMetaColumn:
-      title: QueryResultMetaColumn
-      required:
-      - name
-      - data_type
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        data_type:
-          title: Data Type
-          type: string
-    QueryRunResults:
-      title: QueryRunResults
-      required:
-      - storage_type
-      type: object
-      properties:
-        storage_type:
-          $ref: '#/components/schemas/QueryRunResultStorageType'
-    QueryConfig:
-      title: QueryConfig
-      required:
-      - sql
-      - limit
-      type: object
-      properties:
-        sql:
-          title: Sql
-          type: string
-        limit:
-          title: Limit
-          type: integer
-        parameters:
-          title: Parameters
-          type: object
-          additionalProperties:
-            type: string
-        datastore_to_use:
-          $ref: '#/components/schemas/Datastore'
-    Body_execute_query_async_api_v1_explorer_queries__query_id__run_async_post:
-      title: Body_execute_query_async_api_v1_explorer_queries__query_id__run_async_post
-      required:
-      - parameters
-      type: object
-      properties:
-        parameters:
-          title: Parameters
-          type: object
-          additionalProperties:
-            type: string
-          description: Parameter names and values, to be substituted into parameter placeholders in the saved query
-        run_config:
-          title: Run Config
-          allOf:
-          - $ref: '#/components/schemas/QueryRunRequestConfig'
-          default: {}
-    QueryRunResultStorageType:
-      title: QueryRunResultStorageType
-      enum:
-      - gcs
-      type: string
-      description: An enumeration.
     ValidationError:
       title: ValidationError
       required:
@@ -425,6 +299,32 @@ components:
         zed_token:
           title: Zed Token
           type: string
+    QueryRunResults:
+      title: QueryRunResults
+      required:
+      - storage_type
+      type: object
+      properties:
+        storage_type:
+          $ref: '#/components/schemas/QueryRunResultStorageType'
+    QueryResult:
+      title: QueryResult
+      required:
+      - sql
+      - meta
+      type: object
+      properties:
+        sql:
+          title: Sql
+          type: string
+        data:
+          title: Data
+        meta:
+          $ref: '#/components/schemas/QueryResultMeta'
+        queried_at:
+          title: Queried At
+          type: string
+          format: date-time
     QueryRunStatus:
       title: QueryRunStatus
       enum:
@@ -434,6 +334,106 @@ components:
       - success
       - failed
       - canceled
+      type: string
+      description: An enumeration.
+    QueryRunResultStorageType:
+      title: QueryRunResultStorageType
+      enum:
+      - gcs
+      type: string
+      description: An enumeration.
+    Body_execute_query_async_api_v1_explorer_queries__query_id__run_async_post:
+      title: Body_execute_query_async_api_v1_explorer_queries__query_id__run_async_post
+      required:
+      - parameters
+      type: object
+      properties:
+        parameters:
+          title: Parameters
+          type: object
+          additionalProperties:
+            type: string
+          description: Parameter names and values, to be substituted into parameter placeholders in the saved query
+        run_config:
+          title: Run Config
+          allOf:
+          - $ref: '#/components/schemas/QueryRunRequestConfig'
+          default: {}
+    QueryResultMeta:
+      title: QueryResultMeta
+      required:
+      - columns
+      type: object
+      properties:
+        columns:
+          title: Columns
+          type: array
+          items:
+            $ref: '#/components/schemas/QueryResultMetaColumn'
+    QueryConfig:
+      title: QueryConfig
+      required:
+      - sql
+      - limit
+      type: object
+      properties:
+        sql:
+          title: Sql
+          type: string
+        limit:
+          title: Limit
+          type: integer
+        parameters:
+          title: Parameters
+          type: object
+          additionalProperties:
+            type: string
+        datastore_to_use:
+          $ref: '#/components/schemas/Datastore'
+    Datastore:
+      title: Datastore
+      enum:
+      - snowflake
+      - postgres
+      type: string
+      description: An enumeration.
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    QueryResultMetaColumn:
+      title: QueryResultMetaColumn
+      required:
+      - name
+      - data_type
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        data_type:
+          title: Data Type
+          type: string
+    AsyncQueryRunResponse:
+      properties:
+        run_id:
+          type: string
+          title: Run Id
+      type: object
+      required:
+      - run_id
+      title: AsyncQueryRunResponse
+    ResponseFormat:
+      title: ResponseFormat
+      enum:
+      - json
+      - json_file
+      - csv
       type: string
       description: An enumeration.
   securitySchemes:
