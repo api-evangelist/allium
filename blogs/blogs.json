@@ -5,12 +5,19 @@
       "source": "https://www.allium.so/blog",
       "feed_url": "https://allium.so/blog/rss/",
       "title": "",
-      "saved": 14,
+      "saved": 0,
       "method": "discovered"
     },
     {
       "source": "https://alliumresearch.substack.com/feed",
       "feed_url": "https://alliumresearch.substack.com/feed",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://allium.so/blog/rss/",
+      "feed_url": "https://allium.so/blog/rss/",
       "title": "",
       "saved": 0,
       "method": "feed"
@@ -23,6 +30,6 @@
       "method": "none"
     }
   ],
-  "post_count": 14,
-  "fetched": "2026-10-10T13:15:00Z"
+  "post_count": 34,
+  "fetched": "2026-10-17T14:53:57Z"
 }
