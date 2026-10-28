@@ -64,6 +64,133 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Allium is a company surfaced as a portfolio company of amplify-partners, kleiner-perkins and added to the API Evangelist network as a stub for enrichment. Sector: data-analytics. This profile is a lead awaiting the enrichment pipeline.
+Allium is an enterprise blockchain data platform that transforms raw on-chain data from 150+ blockchains into verified, decision-grade intelligence for institutional finance. It indexes and decodes activity across 10,000+ protocols and exposes it through Realtime REST APIs (sub-second wallet balances, holdings, PnL, DeFi positions, NFTs, DEX trades and Hyperliquid data), Datastreams (Kafka/Pub-Sub/SNS/websocket event feeds), Beam custom pipelines, the Explorer/Datashares historical layer, and Allium Terminal for research. It also ships an AI layer: a hosted MCP server, packaged Agent Skills, and x402 machine-payment endpoints. Customers include Visa, Grayscale, Phantom, MetaMask, MoonPay and the Federal Reserve. Backed by Amplify Partners, Kleiner Perkins and Theory Ventures.
 
-Backed by: amplify-partners, kleiner-perkins — https://allium.so
+**Areas:** Company · Data Analytics · Blockchain · Cryptocurrency · Web3 · Data Infrastructure · Real-Time Data · Stablecoins · DeFi · Machine Payments
+
+## Allium on APIs.io
+
+Everything profiled for Allium is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/allium/](https://apis.io/providers/allium/)** — or go straight to one of the APIs or properties below.
+
+### APIs (3)
+
+- [Allium Explorer API](https://apis.io/apis/allium/allium-explorer-api/) — The Explorer API from Allium — 6 operation(s) for explorer.
+- [Allium Ping API](https://apis.io/apis/allium/allium-ping-api/) — The ping API from Allium — 1 operation(s) for ping.
+- [Allium Polygon API](https://apis.io/apis/allium/allium-polygon-api/) — The Polygon API from Allium — 1 operation(s) for polygon.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Allium Webhooks](https://apis.io/asyncapis/allium/allium-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [allium](https://apis.io/servers/allium/allium/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Allium Agentic Access](https://apis.io/agentic-access/allium/allium-agentic-access/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [Allium Explorer API](https://apis.io/collections/allium/open-allium-explorer-api/)
+- [Allium Explorer ping API](https://apis.io/collections/allium/open-allium-ping-api/)
+- [Allium Explorer Polygon API](https://apis.io/collections/allium/open-allium-polygon-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Allium Openapi Overlay](https://apis.io/overlays/allium/allium-openapi-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Allium Authentication](https://apis.io/security/allium/allium-authentication/)
+- [Allium Domain Security](https://apis.io/security/allium/allium-domain-security/)
+- [Allium Trust Center](https://apis.io/security/allium/allium-trust-center/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://allium.so)
+- [Documentation](https://docs.allium.so/)
+- [Getting started](https://docs.allium.so/api/developer/overview)
+- [API reference](https://docs.allium.so/api/developer/overview)
+- [Pricing](https://docs.allium.so/ai/machine-payments/endpoints-pricing)
+- [Sign up](https://app.allium.so/join)
+- [Support](https://www.allium.so/contact)
+- [Changelog](https://docs.allium.so/changelog/overview)
+- [Blog](https://www.allium.so/blog)
+- [Compliance](https://trust.allium.so/)
+- [Terms of service](https://www.allium.so/terms-of-service)
+- [Privacy policy](https://www.allium.so/privacy-policy)
+- [Status](https://status.allium.so)
+
+## API Evangelist rating
+
+**Kin Score 53.0** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 51.5 |
+| Contract governance | 18.2 |
+| Operational transparency | 39.5 |
+| Developer ergonomics | 64.3 |
+| Access clarity | 60.5 |
+
+**Agent readiness 42.5** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 26.8** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/allium/](https://apis.io/providers/allium/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Allium: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/allium/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
